@@ -1,5 +1,6 @@
 from math import inf #IMPORT INFINITY CONST 
 import pandas as pd #IMPORT PANDAS TO MAKE DF AND PRINT CLEANLY IN CONSOLE
+import subprocess; subprocess.call('cls', shell=True)
 
 ## MAKE FLOYD ALGORITHM
 def floyd(
