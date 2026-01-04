@@ -49,4 +49,11 @@ def optsearchtree(
 
     print("minavg_matrix(A)\n"+pd.DataFrame(minavg_matrix))
     print("minavg_matrix(R)\n"+pd.DataFrame(optimal_matrix))
-    return minavg, optimal_matrix
+    return [minavg, optimal_matrix]
+
+num_of_nodes = 3
+POSSIBILITY_MATRIX = [0, 0.7, 0.2, 0.1]
+result = optsearchtree(
+    3,
+    POSSIBILITY_MATRIX= POSSIBILITY_MATRIX,
+)
