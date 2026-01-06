@@ -36,7 +36,7 @@ def optsearchtree(
 
             ### LOOP THROUGH ALL POSSIBLE ROOT (k) BETWEEN i AND j TO FOUND BEST
             ## VARIABLE TO STORE EACH k_value
-            k_values = []
+            k_values = {}
             ## LOOP k
             for k in range(i,j+1):
                 #      RECURSIVE MUST BE => right_brnach_value + left_branch_value + possibility of i + possibility of j
@@ -52,13 +52,18 @@ def optsearchtree(
                 sum_possibility = np.round(sum_possibility, 1)
 
                 ## CALCULATE AND STORE k_value IN k_values
-                k_value = sum_of_right_and_left_branch + sum_possibility
-                k_values.append(k_value.item())
+                k_value = np.round(sum_of_right_and_left_branch + sum_possibility, 1)
+                k_values.update(
+                    {f"{k}": k_value.item(),}
+                    )
 
             ### FILL MATRIXES WITH FOUNDED VALUES
+            ## FILL k number of minimum value
+            optimal_matrix[i][j] = min(k_values, key= k_values.get)
+            
             ## FILL MINIMUM OF k_values INTO 'minavg_matrix'
-            minavg_matrix[i][j] = min(k_values)
-            optimal_matrix[i][j] = k
+            minavg_matrix[i][j] = k_values[min(k_values, key= k_values.get)]
+
             i+=1
         t+=1
     minavg = minavg_matrix[1][num_of_nodes]
