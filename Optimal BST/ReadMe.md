@@ -22,6 +22,7 @@ This project solves the OBST problem, which aims to construct a Binary Search Tr
 Install the required libraries:
 ```bash
 pip install numpy pandas
+```
 
 # Execution Example
 ## Number of keys/nodes
