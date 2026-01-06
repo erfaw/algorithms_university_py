@@ -1,4 +1,4 @@
-for persian|فارسی readme clickme()[]
+for persian|فارسی readme (clickme)[https://github.com/erfaw/algorithms_university_py/blob/main/Optimal%20BST/ReadME-per.md]
 # 🌳 Optimal Binary Search Tree (OBST) Solver
 
 A professional Python implementation of the **Optimal Binary Search Tree** algorithm using **Dynamic Programming**.
