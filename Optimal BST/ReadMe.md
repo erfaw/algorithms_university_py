@@ -1,3 +1,4 @@
+for persian|فارسی readme clickme()[]
 # 🌳 Optimal Binary Search Tree (OBST) Solver
 
 A professional Python implementation of the **Optimal Binary Search Tree** algorithm using **Dynamic Programming**.
