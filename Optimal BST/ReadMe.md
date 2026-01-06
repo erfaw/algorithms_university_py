@@ -22,3 +22,26 @@ This project solves the OBST problem, which aims to construct a Binary Search Tr
 Install the required libraries:
 ```bash
 pip install numpy pandas
+
+# Execution Example
+## Number of keys/nodes
+num_of_nodes = 3
+
+## Probability array (Index 0 is a placeholder)
+POSSIBILITY_MATRIX = [0, 0.7, 0.2, 0.1] 
+
+## Run the algorithm
+min_cost, root_matrix = optsearchtree(num_of_nodes, POSSIBILITY_MATRIX)
+
+# 📊 Output Matrices
+
+The algorithm generates two critical matrices:
+
+    1. MinAvg Matrix (A): Stores the minimum search cost for every sub-tree combination.
+
+    2. Root Matrix (R): Identifies the optimal root node for the range [i, j], allowing for tree reconstruction.
+
+# 🔍 Complexity Analysis
+    * Time Complexity: O(n3) due to the three nested loops (diagonal, row, and root-selection k).
+
+    * Space Complexity: O(n2) for storing the DP tables.
