@@ -31,24 +31,42 @@ def optsearchtree(
     while t<=num_of_nodes-1:
         i=1
         while i<=num_of_nodes-t:
+            ## DEFINE j WITH t AND i (TO MEASURE HOW RADIUS WE MUST CALCULATE)
             j= i+t
-            min_value = None
-            for k in range(i,j):
-                min_value = min(
-                    minavg_matrix[i][k-1] , minavg_matrix[k+1][j]
-                )
-            sum_possibility = 0
-            for i in range(i,j):
-                sum_possibility += POSSIBILITY_MATRIX[i]
-                
-            minavg_matrix[i][j] = min_value + sum_possibility
+
+            ### LOOP THROUGH ALL POSSIBLE ROOT (k) BETWEEN i AND j TO FOUND BEST
+            ## VARIABLE TO STORE EACH k_value
+            k_values = []
+            ## LOOP k
+            for k in range(i,j+1):
+                #      RECURSIVE MUST BE => right_brnach_value + left_branch_value + possibility of i + possibility of j
+                ## CALCULATE LEFT AND RIGHT BRANCH BASED ON k 
+                sum_of_right_and_left_branch = minavg_matrix[i][k-1] + minavg_matrix[k+1][j]
+
+                ## CALCUALTE POSSIBILITIES FOR EACH i AND j BASED ON 'POSSIBILITY_MATRIX' WHICH ACCEPTED AS AN arg
+                sum_possibility = 0
+                for p in range(i,j+1):
+                    sum_possibility += POSSIBILITY_MATRIX[p]
+
+                ## FIX THE PROBLEM WITH <Floating Point Arithmetic Problem>
+                sum_possibility = np.round(sum_possibility, 1)
+
+                ## CALCULATE AND STORE k_value IN k_values
+                k_value = sum_of_right_and_left_branch + sum_possibility
+                k_values.append(k_value.item())
+
+            ### FILL MATRIXES WITH FOUNDED VALUES
+            ## FILL MINIMUM OF k_values INTO 'minavg_matrix'
+            minavg_matrix[i][j] = min(k_values)
             optimal_matrix[i][j] = k
             i+=1
         t+=1
     minavg = minavg_matrix[1][num_of_nodes]
 
-    print("minavg_matrix(A)\n"+pd.DataFrame(minavg_matrix))
-    print("minavg_matrix(R)\n"+pd.DataFrame(optimal_matrix))
+    print("\nminavg_matrix(A)")
+    print(pd.DataFrame(minavg_matrix))
+    print("\nminavg_matrix(R)")
+    print(pd.DataFrame(optimal_matrix))
     return [minavg, optimal_matrix]
 
 num_of_nodes = 3
