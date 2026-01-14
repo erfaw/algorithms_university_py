@@ -7,10 +7,12 @@ import subprocess; subprocess.call('cls', shell=True)
 #     num_of_nodes = 4,
 #     POSSIBILITY_LIST= [0, 0.3, 0.4, 0.2, 0.1]
 
+input("Welcome to <Optimal BST> program!\n\tpush any key to continue...")
+subprocess.call('cls', shell=True)
 ## GET ENTRY VALUES FROM USER
 nodes_number = int(input("insert 'num_of_nodes'=\t"))
 possibility_list = []
-print("Please insert possibilities carefully: ")
+print("Please insert possibilities carefully: \nnotice: indexes begins with 1")
 for node in range(nodes_number+1):
     if node == 0: 
         possibility_list.append(0)
