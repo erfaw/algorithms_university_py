@@ -105,3 +105,38 @@ def is_prime(n):
 	+ Hardcode small prime numbers for simplicity and speed
 
 By choosing the right approach to generate prime numbers, you can ensure that your implementation is secure, efficient, and scalable.
+
+**Prime Number Size for Diffie-Hellman**
+=====================================
+
+### Recommended Minimum Prime Size
+---------------------------------
+
+* **Original Diffie-Hellman:** 2048 bits (256 bytes) or larger
+* **Modern Diffie-Hellman:** 4096 bits (512 bytes) or larger
+
+### Importance of Large Prime Numbers
+-------------------------------------
+
+* **Reduced Security**: Using a smaller prime number can lead to reduced security and increased vulnerability to attacks.
+* **Increased Computational Efficiency**: Larger prime numbers require more computational resources, making them less suitable for resource-constrained environments.
+
+### Generating Large Prime Numbers with Sympy
+------------------------------------------------
+
+```python
+import sympy
+
+# Generate a 2048-bit (256-byte) prime number
+p = sympy.next_prime(2 ** 11)
+
+# Generate a 4096-bit (512-byte) prime number
+p = sympy.next_prime(2 ** 12)
+```
+### Notes
+--------------------------------
+
+* Generating large prime numbers can be computationally expensive and may take some time to complete.
+* The choice of prime size depends on the specific use case and security requirements.
+
+By choosing a suitable prime number size, you can ensure the security and efficiency of your Diffie-Hellman key exchange protocol implementation.
