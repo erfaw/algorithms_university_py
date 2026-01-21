@@ -46,3 +46,62 @@ The `secrets` module in Python 3.6+ provides a secure way to generate true rando
 ----------------
 
 `secrets` is a more secure alternative to `random` when generating random numbers in Python. While both modules can generate random numbers, `secrets` provides cryptographically secure randomness, making it essential for many cryptographic applications.
+
+**Choosing Prime Number Methods**
+================================
+
+### Hardcoding Prime Numbers
+---------------------------
+
+* **Pros:**
+	+ Simple implementation
+	+ Fast computation
+* **Cons:**
+	+ Limited by the number of hardcoded prime numbers
+	+ May not cover all possible ranges or sizes
+
+Example:
+```python
+prime_numbers = [2, 3, 5, 7, 11, ...]
+```
+### Prime Number Generator
+-------------------------
+
+* **Pros:**
+	+ Generates prime numbers on the fly
+	+ Can be used for large prime numbers
+* **Cons:**
+	+ Computational expensive for large prime numbers
+
+Example:
+```python
+import sympy
+prime_number = sympy.next_prime(1024)  # generates a prime number with at least 10 digits
+```
+### Verifying Prime Numbers using Cryptographic Primitives
+---------------------------------------------------
+
+* **Pros:**
+	+ Uses algorithms specifically designed for prime number verification
+	+ Can be used for high-security applications
+* **Cons:**
+	+ Computational expensive for large prime numbers
+
+Example:
+```python
+import cryptography
+def is_prime(n):
+    return cryptography.prime.check_prime(n)
+```
+### Choosing the Right Approach
+--------------------------------
+
+* **Considerations:**
+	+ Specific requirements and constraints
+	+ Security level needed
+	+ Computational resources available
+* **Recommendations:**
+	+ Use a prime number generator or cryptographic primitives for high-security applications
+	+ Hardcode small prime numbers for simplicity and speed
+
+By choosing the right approach to generate prime numbers, you can ensure that your implementation is secure, efficient, and scalable.
