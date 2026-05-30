@@ -1,2 +1,6 @@
-# algorithms_university_py
-These are the algorithms that I learned in university, and these are their implementations in Python.
+# Some Algorithms implementation
+
+* [Floyd-Warshall](./Floyd%20algorithm/README.md)
+* [Optimal-BST](./Optimal%20BST/ReadMe.md)
+* [Diffie-Hellman Key Exchange](./Diffie-Hellman%20Key%20Exchange/ReadMe.md)
+
